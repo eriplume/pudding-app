@@ -8,7 +8,7 @@
     </div>
 
     <div class="flex justify-center">
-        <form method="POST" action="{{ route('profile.update') }}" class="w-1/2">
+        <form method="POST" action="{{ route('profile.update') }}" enctype="multipart/form-data" class="w-1/2">
             @csrf
             @method('patch')
 
@@ -24,6 +24,13 @@
                     <span class="label-text">Email</span>
                 </label>
                 <input type="email" id="email" name="email" class="input input-bordered w-full" value="{{ old('email', $user->email) }}" required>
+            </div>
+            
+            <div class="form-control my-4">
+                <label for="avatar" class="label">
+                    <span class="label-text">Profile Image</span>
+                </label>
+                <input type="file" id="avatar" name="avatar" class="input input-bordered w-full">
             </div>
 
             <button type="submit" class="btn btn-primary btn-block normal-case">Update</button>

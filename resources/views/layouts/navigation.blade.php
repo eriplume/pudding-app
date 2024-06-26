@@ -11,9 +11,7 @@
             <div class="dropdown dropdown-end">
                 <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
                     <div class="w-10 rounded-full">
-                        <img
-                          alt=""
-                          src="{{ asset('images/default_user_image.png') }}" />
+                        <img src="{{ isset(Auth::user()->avatar) ? asset('storage/' . Auth::user()->avatar) : asset('images/default_user_image.png') }}" alt="">
                     </div>
                 </div>
                 <form method="POST" action="{{ route('logout') }}">

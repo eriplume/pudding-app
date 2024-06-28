@@ -49,7 +49,7 @@ class ArticlesController extends Controller
             'address' => $request->address,
         ]);
         
-        return redirect('/');
+        return redirect('/')->with('message', 'Successfully!');
     }
     
     public function show(string $id)
@@ -96,7 +96,7 @@ class ArticlesController extends Controller
             $article->address = $request->address;
             $article->save();
             
-            return redirect('/');
+            return redirect('/')->with('message', 'Successfully updated!');
         }
         
         return redirect('/');
@@ -108,7 +108,7 @@ class ArticlesController extends Controller
         
         if (\Auth::id() === $article->user_id) {
             $article->delete();
-            return redirect('/');
+            return redirect('/')->with('message', 'Successfully deleted.');;
         }
         
         return redirect('/');

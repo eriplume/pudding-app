@@ -3,7 +3,6 @@
 @section('content')
     <div class="prose mx-auto text-center">
         <h2>Edit</h2>
-        @include('components.error_messages')
     </div>
 
     <div class="flex justify-center">
@@ -19,7 +18,7 @@
                         <span class="label-text text-red-300 ml-1">※</span>
                     </div>
                 </label>
-                <input type="text" name="title" class="input input-bordered w-full" value={{ $article->title }}>
+                <input type="text" name="title" class="input input-bordered w-full" value="{{ $article->title }}">
             </div>
 
             <div class="form-control my-4">
@@ -43,7 +42,7 @@
                         <span class="label-text text-red-300 ml-1">※</span>
                     </div>
                 </label>
-                <input type="text" name="shop" class="input input-bordered w-full" value={{ $article->shop }}>
+                <input type="text" name="shop" class="input input-bordered w-full" value="{{ $article->shop }}">
             </div>
 
             <div class="form-control my-4">
@@ -64,14 +63,14 @@
                 <label for="address" class="label">
                     <span class="label-text">Address</span>
                 </label>
-                <input type="text" name="address" class="input input-bordered w-full" placeholder="市町村以降の住所" value={{ $article->address }}>
+                <input type="text" name="address" class="input input-bordered w-full" placeholder="市町村以降の住所" value="{{ $article->address }}">
             </div>
             
             <div class="form-control my-4">
                 <label for="content" class="label">
                     <span class="label-text">Comment</span>
                 </label>
-                <textarea class="textarea textarea-bordered" name="content" value={{ $article->content }}></textarea>
+                <textarea class="textarea textarea-bordered" name="content" value="{{ $article->content }}"></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary btn-block normal-case">更新する</button>

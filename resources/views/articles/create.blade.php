@@ -3,11 +3,9 @@
 @section('content')
     <div class="prose mx-auto text-center">
         <h2>New</h2>
-        @include('components.error_messages')
     </div>
 
     <div class="flex justify-center">
-                    {{-- エラーメッセージ --}}
         <form method="POST" action="{{ route('articles.store') }}" class="w-1/2">
             @csrf
 

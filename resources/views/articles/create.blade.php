@@ -6,7 +6,7 @@
     </div>
 
     <div class="flex justify-center">
-        <form method="POST" action="{{ route('articles.store') }}" class="w-1/2">
+        <form method="POST" action="{{ route('articles.store') }}" enctype="multipart/form-data" class="w-1/2">
             @csrf
 
             <div class="form-control my-4">
@@ -69,6 +69,16 @@
                     <span class="label-text">Comment</span>
                 </label>
                 <textarea class="textarea textarea-bordered" name="content"></textarea>
+            </div>
+            
+            <div class="form-control my-4">
+                <label for="image" class="label">
+                    <div class='flex'>
+                        <span class="label-text">Photo</span>
+                        <span class="label-text text-red-300 ml-1">※</span>
+                    </div>
+                </label>
+                <input type="file" id="image" name="image" class="input input-bordered w-full">
             </div>
 
             <button type="submit" class="btn btn-primary btn-block normal-case">投稿する</button>

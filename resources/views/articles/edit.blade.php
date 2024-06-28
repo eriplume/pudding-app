@@ -72,7 +72,7 @@
                 </label>
                 <textarea class="textarea textarea-bordered" name="content" value="{{ $article->content }}"></textarea>
             </div>
-
+            
             <button type="submit" class="btn btn-primary btn-block normal-case">更新する</button>
         </form>
     </div>

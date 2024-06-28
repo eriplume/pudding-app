@@ -1,7 +1,7 @@
 <div class="xl:w-1/4 md:w-1/2 p-4">
     <a href="{{ route('articles.show', $article->id) }}">
-        <div class="bg-gray-100 p-6 rounded-lg">
-            <img class="h-40 rounded w-full object-cover object-center mb-6" src="https://dummyimage.com/720x400" alt="content">
+        <div class="bg-white p-6 rounded-lg border border-gray-300">
+            <img class="h-40 rounded w-full object-cover object-center mb-6" src="{{ Storage::url($article->image) }}" alt="image" width="720" height="400">
             <h3 class="tracking-widest text-indigo-500 text-xs font-medium title-font">{{ $article->typeName }}</h3>
             <h2 class="text-lg text-gray-900 font-medium title-font mb-4">{{ $article->title }}</h2>
             <p class="flex leading-relaxed text-base mb-1">

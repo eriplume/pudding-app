@@ -5,7 +5,7 @@
     @if (Auth::check())
         <div class="flex gap-2">
             <ul class="menu menu-horizontal px-1">
-                <li><a>新規投稿作成</a></li>
+                <li><a href="{{ route('articles.create') }}">新規投稿作成</a></li>
                 <li><a>マイリスト</a></li>
             </ul>
             <div class="dropdown dropdown-end">

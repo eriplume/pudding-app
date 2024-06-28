@@ -38,8 +38,14 @@ class ArticlesController extends Controller
             'shop' => 'required|max:20',
             'pref_id' => 'required',
             'content' => 'max:255',
+            'image' => 'file|mimes:gif,png,jpg,webp|max:1024'
         ]);
         
+        // 画像フォームでリクエストした画像を取得
+        $img = $request->file('image');
+        // storage > public > img配下に画像が保存される
+        $path = $img->store('img','public');
+
         $request->user()->articles()->create([
             'title' => $request->title,
             'type_id' => $request->type_id,
@@ -47,6 +53,7 @@ class ArticlesController extends Controller
             'pref_id' => $request->pref_id,
             'content' => $request->content,
             'address' => $request->address,
+            'image' => $path,
         ]);
         
         return redirect('/')->with('message', 'Successfully!');

@@ -6,7 +6,7 @@
             
             <!--画像-->
             <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
-                <img class="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600">
+                <img class="object-cover object-center rounded" alt="hero" src="{{ Storage::url($article->image) }}" width="720" height="600">
             </div>
           
             <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">

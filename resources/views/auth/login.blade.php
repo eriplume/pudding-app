@@ -3,7 +3,6 @@
 @section('content')
     <div class="prose mx-auto text-center">
         <h2>Log in</h2>
-        @include('components.error_messages')
     </div>
 
     <div class="flex justify-center">

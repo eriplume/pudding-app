@@ -63,7 +63,7 @@
                 </div>
                 
                 <!--タグ-->
-                <div class="mb-2">
+                <div class="mb-1">
                     <div class="flex leading-relaxed sm:text-lg text-md mb-1 items-center">
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 mr-1">
@@ -90,19 +90,20 @@
                     </div>
                 @endif
                 
-                <!--住所情報があれば-->
-                <div>
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3280.3293370955657!2d135.1971003750796!3d34.69687238341921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60008f8fb10d1203%3A0xedeb3242e96f2ed!2sDORSIA!5e0!3m2!1sja!2sjp!4v1719470834472!5m2!1sja!2sjp" 
-                        width="400" 
-                        height="300" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>         
+                <!-- 地図表示 -->
+                <div id="map" style="height:300px; width:80%;"></div>
             </div>
         </div>
     </section>
+    
+    <script>
+        var prefName = @json($article->prefName);
+        var addressDetail = @json($article->address);
+    </script>
+    <script src="{{ asset('/js/map.js') }}"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key={{ config('app.google_maps_api_key') }}&callback=initMap"
+        async
+        defer>
+    </script>
 @endsection('content')

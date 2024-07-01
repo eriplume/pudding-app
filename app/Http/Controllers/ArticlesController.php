@@ -7,21 +7,35 @@ use App\Models\Article;
 
 class ArticlesController extends Controller
 {
-    public function index() 
+    public function index(Request $request)
     {
-        $data = [];
-
-        $articles = Article::orderBy('created_at', 'desc')->paginate(12);
+        $query = Article::query();
+    
+        if ($request->filled('type_id')) {
+            $query->where('type_id', $request->input('type_id'));
+        }
+    
+        if ($request->filled('pref_id')) {
+            $query->where('pref_id', $request->input('pref_id'));
+        }
+    
+        if ($request->filled('shop')) {
+            $query->where('shop', 'like', '%' . $request->input('shop') . '%');
+        }
+    
+        $articles = $query->orderBy('created_at', 'desc')->paginate(12);
+    
         $data = [
             'articles' => $articles,
         ];
-        
+    
         if (\Auth::check()) {
             return view('articles.index', $data);
         }
-        
+    
         return view('welcome', $data);
     }
+
     
     public function create()
     {
@@ -35,7 +49,7 @@ class ArticlesController extends Controller
         $request->validate([
             'title' => 'required|max:20',
             'type_id' => 'required',
-            'shop' => 'required|max:20',
+            'shop' => 'required|max:50',
             'pref_id' => 'required',
             'content' => 'max:255',
             'image' => 'file|mimes:gif,png,jpg,webp|max:1024'
@@ -87,7 +101,7 @@ class ArticlesController extends Controller
         $request->validate([
             'title' => 'required|max:20',
             'type_id' => 'required',
-            'shop' => 'required|max:20',
+            'shop' => 'required|max:50',
             'pref_id' => 'required',
             'content' => 'max:255',
         ]);

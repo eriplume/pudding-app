@@ -48,4 +48,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Article::class);   
     }
+    
+    public function favorites() 
+    {
+        return $this->belongsToMany(Article::class, 'favorites', 'user_id', 'article_id')->withTimestamps();
+    }
+    
+    public function loadRelationshipCounts() 
+    { 
+        $this->loadCount(['favorites']);   
+    }
 }

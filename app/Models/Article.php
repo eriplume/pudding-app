@@ -24,4 +24,9 @@ class Article extends Model
         return config('pudding_types.'.$this->type_id);
     }
     
+    public function favorite_users()
+    {
+        return $this->belogsToMany(User::class, 'favorites', 'article_id', 'user_id')->withTimestamps();
+    }
+    
 }

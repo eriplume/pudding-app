@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ArticlesController;
+use App\Http\Controllers\UsersController;
 use App\Http\Controllers\FavoritesController;
 
 /*
@@ -28,6 +29,11 @@ Route::middleware('auth')->group(function () {
     Route::prefix('articles/{id}')->group(function() {
         Route::post('favorites', [FavoritesController::class, 'store'])->name('favorites.favorite');
         Route::delete('unfavorite', [FavoritesController::class, 'destroy'])->name('favorites.unfavorite');
+    });
+    
+    Route::prefix('users/{id}')->group(function () {
+        Route::get('articles', [UsersController::class, 'articles'])->name('users.articles');
+        Route::get('favorites', [UsersController::class, 'favorites'])->name('users.favorites');
     });
 });
 

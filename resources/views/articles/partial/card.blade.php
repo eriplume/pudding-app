@@ -19,7 +19,7 @@
             </p>
             
             <div class="flex justify-end">
-                @include('articles.favorite_button')
+                @include('articles.partial.favorite_button')
             </div>
         </div>
     </a>

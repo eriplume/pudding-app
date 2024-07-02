@@ -17,7 +17,7 @@
                     
                     <div class="flex items-center">
                         <!--お気に入りボタン-->
-                        @include('articles.favorite_button')
+                        @include('articles.partial.favorite_button')
                         
                         <!--編集・削除ボタン-->
                         @if (Auth::id() == $article->user_id)

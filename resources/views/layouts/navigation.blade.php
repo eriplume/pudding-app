@@ -1,12 +1,12 @@
-<div class="navbar bg-base-100">
+<div class="navbar bg-neutral sticky top-0">
     <div class="flex-1">
-        <a class="btn btn-ghost text-xl" href="/">PUDDING</a>
+        <a class="btn btn-ghost text-xl text-amber-50" href="/">PUDDING</a>
     </div>
     @if (Auth::check())
         <div class="flex gap-2">
-            <a class="btn btn-ghost" href="{{ route('articles.create') }}">新規投稿作成</a>
+            <a class="btn btn-ghost text-amber-50" href="{{ route('articles.create') }}">新規投稿作成</a>
             <div class="dropdown dropdown-end">
-                <div tabindex="0" role="button" class="btn btn-ghost">
+                <div tabindex="0" role="button" class="btn btn-ghost text-amber-50">
                     マイリスト
                 </div>
                 <ul
@@ -35,7 +35,7 @@
             </div>
         @else
             <div class="flex gap-2">
-                <ul class="menu menu-horizontal px-1">
+                <ul class="menu menu-horizontal px-1 text-amber-50">
                     <li><a href="{{ route('register') }}">新規ユーザー登録</a></li>
                     <li><a href="{{ route('login') }}">ログイン</a></li>
                 </ul>

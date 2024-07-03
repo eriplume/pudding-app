@@ -22,7 +22,7 @@ export default {
     plugins: [forms, typography, require("daisyui")],
     daisyui: {
         themes: [
-            "bumblebee",
+            "autumn",
             ],
     },
 };

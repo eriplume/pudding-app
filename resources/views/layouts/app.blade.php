@@ -8,34 +8,23 @@
         @vite('resources/css/app.css')
     </head>
 
-    <body>
-
+    <body class="bg-amber-50 h-full min-h-screen">
         {{-- ナビゲーションバー --}}
         @include('layouts.navigation')
         
         <div class="container mx-auto">
-            
             @if(session('message'))
-                <div role="alert" class="alert" id="FlashMessage">
-                     <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        class="stroke-info h-6 w-6 shrink-0">
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                     </svg>
-                     <span>{{ session('message') }}</span>
+                <div role="alert" class="alert alert-success mt-6" id="FlashMessage">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>{{ session('message') }}</span>
                 </div>
             @endif
-            
+        
             @include('components.error_messages')
 
             @yield('content')
         </div>
-
     </body>
 </html>

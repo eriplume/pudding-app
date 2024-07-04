@@ -1,6 +1,6 @@
 <div class="navbar bg-neutral sticky top-0">
     <div class="flex-1">
-        <a class="btn btn-ghost text-xl text-amber-50" href="/">PUDDING</a>
+        <a class="btn btn-ghost text-xl text-amber-50" href="/">My PUDDING</a>
     </div>
     @if (Auth::check())
         <div class="flex gap-2">

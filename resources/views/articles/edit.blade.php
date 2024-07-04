@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="prose mx-auto text-center">
-        <h2>Edit</h2>
+<div class="px-5 py-10">
+    <div class="mx-auto text-center text-neutral title-font text-3xl font-medium">
+        <h2>Edit Article</h2>
     </div>
 
     <div class="flex justify-center">
@@ -73,7 +74,12 @@
                 <textarea class="textarea textarea-bordered" name="content" value="{{ $article->content }}"></textarea>
             </div>
             
-            <button type="submit" class="btn btn-primary btn-block normal-case">更新する</button>
+            <button type="submit" class="btn btn-neutral btn-block normal-case">更新する</button>
+            
+            <p class="mt-8">
+                <a class="link link-hover text-neutral" href="{{ route('articles.show', $article->id) }}"><< 記事詳細ページに戻る</a>
+            </p>
         </form>
     </div>
+</div>
 @endsection

@@ -5,7 +5,11 @@
                   @include('articles.partial.card')
           @endforeach
         </div>
+        
+        <div class="my-6">
+            {{ $articles->links() }}
+        </div>
     @else
-        <div class="text-lg text-gray-400">No contents</div>
+        <div class="text-lg text-neutral">No contents</div>
     @endif
 </div>

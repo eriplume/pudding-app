@@ -22,7 +22,9 @@
                 </div>
             @endif
         
-            @include('components.error_messages')
+            <div class="mt-6">        
+                @include('components.error_messages')
+            </div>
 
             @yield('content')
         </div>

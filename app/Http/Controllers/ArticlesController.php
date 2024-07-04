@@ -23,7 +23,7 @@ class ArticlesController extends Controller
             $query->where('shop', 'like', '%' . $request->input('shop') . '%');
         }
     
-        $articles = $query->orderBy('created_at', 'desc')->paginate(12);
+        $articles = $query->orderBy('created_at', 'desc')->paginate(8);
     
         $data = [
             'articles' => $articles,
